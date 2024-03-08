@@ -49,6 +49,30 @@ public class Complejo {
         return Math.sqrt(Math.pow(this.real, 2) + Math.pow(this.imaginario, 2));
     }
 
+    //@valeriaalexandracuellarcoca
+    // Método para obtener la raíz cuadrada de un número complejo
+    public Complejo raizCuadrada() {
+        double magnitud = Math.sqrt(this.modulo());
+        double angulo = this.fase() / 2.0;
+        return new Complejo(magnitud * Math.cos(angulo), magnitud * Math.sin(angulo));
+    }
+
+    // Método para obtener el logaritmo natural de un número complejo
+    public Complejo logaritmoNatural() {
+        double magnitud = Math.log(this.modulo());
+        double angulo = this.fase();
+        return new Complejo(magnitud, angulo);
+    }
+
+    // Método para obtener una representación en cadena del número complejo
+    @Override
+    public String toString() {
+        if (imaginario >= 0) {
+            return real + " + " + imaginario + "i";
+        } else {
+            return real + " - " + Math.abs(imaginario) + "i";
+        }
+    }
 
     public static void main(String[] args) {
     
